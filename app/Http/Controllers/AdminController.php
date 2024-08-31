@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Flasher\Toastr\Prime\ToastrInterface;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -18,6 +19,8 @@ class AdminController extends Controller
         $category->category_name = $request->category;
 
         $category->save();
+
+        toastr()->timeout(10000)->closeButton()->success('Category Added Successfully');
 
         return redirect()->back();
     }
