@@ -70,3 +70,6 @@ route::get('delete_cart/{id}', [HomeController::class, 'delete_cart'])
 
 route::post('confirm_order', [HomeController::class, 'confirm_order'])
 ->middleware(['auth', 'verified']);
+
+route::get('view_orders', [AdminController::class, 'view_order'])
+->middleware(['auth', 'admin']);
